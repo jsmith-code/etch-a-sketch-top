@@ -1,5 +1,8 @@
 function generateGrid(size) {
     const canvasContainer = document.querySelector('#canvas-container');
+    if (canvasContainer.hasChildNodes()) {
+        canvasContainer.textContent = '';
+    }
 
     for (let row = 0; row < size; row++) {
         const pixelRow = document.createElement('div');
