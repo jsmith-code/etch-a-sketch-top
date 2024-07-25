@@ -1,6 +1,9 @@
 function generateGrid(size) {
     const canvasContainer = document.querySelector('#canvas-container');
-    if (canvasContainer.hasChildNodes()) {
+
+    const gridExists = canvasContainer.hasChildNodes();
+    if (gridExists) {
+        // Remove previous grid's pixels
         canvasContainer.textContent = '';
     }
 
