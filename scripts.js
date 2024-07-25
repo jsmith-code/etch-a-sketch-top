@@ -13,11 +13,17 @@ function generateGrid(size) {
         canvasContainer.appendChild(pixelRow);
         
         for (let col = 0; col < size; col++) {
-            const pixel = document.createElement('div');
-            pixel.classList.add('pixel');
+            const pixel = createPixel();
             pixelRow.appendChild(pixel);
         }
     }
+}
+
+function createPixel() {
+    const pixel = document.createElement('div');
+    pixel.classList.add('pixel');
+    
+    return pixel;
 }
 
 generateGrid(16);
