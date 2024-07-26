@@ -46,4 +46,16 @@ function createPixel() {
     return pixel;
 }
 
+function getIntBetween(min, max) {
+    let input;
+    do {
+        input = prompt(`Enter an integer from ${min} - ${max}.`);
+        if (!input) {
+            return NaN;
+        }
+        input = Number(input);
+    } while (isNaN(input) || input < min || input > max);
+    return Math.round(input);
+}
+
 generateGrid(16);
