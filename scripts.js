@@ -1,18 +1,11 @@
 const newGridBtn = document.querySelector('#new-grid-btn');
 
 newGridBtn.addEventListener('click', () => {
-    while (true) {
-        const input = prompt('Enter new grid size (must be between 1 - 100)');
-        if (!input) {
-            return;
-        }
-
-        const size = Math.round(Number(input));
-        if (!isNaN(size) && size >= 1 && size <= 100) {
-            generateGrid(size);
-            return;
-        }
+    const size = getIntBetween(1, 100);
+    if (isNaN(size)) {
+        return;
     }
+    generateGrid(size);
 });
 
 function generateGrid(size) {
