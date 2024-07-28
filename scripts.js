@@ -32,8 +32,14 @@ function generateGrid(size) {
 function createPixel() {
     const pixel = document.createElement('div');
     pixel.classList.add('pixel');
-    pixel.addEventListener('mouseover', () => {
-        pixel.style.backgroundColor = '#333333';
+    pixel.style.opacity = 0;
+    pixel.style.backgroundColor = 'black';
+
+    pixel.addEventListener('mouseover', () => {        
+    if (pixel.style.opacity < 1 ) {
+        let currentOpacity = parseFloat(pixel.style.opacity);
+        pixel.style.opacity = currentOpacity + 0.1;
+    }
     });
 
     return pixel;
