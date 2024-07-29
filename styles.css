@@ -4,6 +4,7 @@ body {
     align-items: center;
     margin: 16px;
     gap: 16px;
+    background-color: #222222;
 }
 
 #canvas-container {
