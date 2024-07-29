@@ -33,10 +33,18 @@ function createPixel() {
     const pixel = document.createElement('div');
     pixel.classList.add('pixel');
     pixel.style.opacity = 0;
-    pixel.style.backgroundColor = 'black';
-
-    pixel.addEventListener('mouseover', () => {        
-    if (pixel.style.opacity < 1 ) {
+    
+    pixel.addEventListener('mouseover', () => {       
+        if (!pixel.classList.contains('colored'))  {
+            pixel.classList.add('colored');
+            
+            const red = Math.floor(Math.random()*255);
+            const green = Math.floor(Math.random()*255);
+            const blue = Math.floor(Math.random()*255);
+            pixel.style.backgroundColor = `rgb(${red}, ${green}, ${blue})`;
+        }
+        
+        if (pixel.style.opacity < 1 ) {
         let currentOpacity = parseFloat(pixel.style.opacity);
         pixel.style.opacity = currentOpacity + 0.1;
     }
