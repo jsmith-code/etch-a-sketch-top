@@ -17,21 +17,18 @@ function generateGrid(size) {
         pixelGrid.textContent = '';
     }
 
-    for (let row = 0; row < size; row++) {
-        const pixelRow = document.createElement('div');
-        pixelRow.classList.add('pixel-row');
-        pixelGrid.appendChild(pixelRow);
-        
-        for (let col = 0; col < size; col++) {
-            const pixel = createPixel();
-            pixelRow.appendChild(pixel);
-        }
+    pixelGrid.style.gridTemplateColumns = `repeat(${size}, 1fr)`;
+    pixelGrid.style.gridTemplateRows = `repeat(${size}, 1fr)`;
+
+    const totalPixels = size ** 2;
+    for (let pixel = 0; pixel < totalPixels; pixel++) {
+        const pixel = createPixel();
+        pixelGrid.appendChild(pixel);
     }
 }
 
 function createPixel() {
     const pixel = document.createElement('div');
-    pixel.classList.add('pixel');
     pixel.style.opacity = 0;
     
     pixel.addEventListener('mouseover', () => {       

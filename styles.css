@@ -8,11 +8,10 @@ body {
 }
 
 #pixel-grid {
+    display: grid;
     outline: 2px solid #cccccc;
     width: 640px;
     height: 640px;
-    display: flex;
-    flex-direction: column;
 }
 
 #new-grid-btn {
@@ -27,13 +26,4 @@ body {
 #new-grid-btn:hover {
     cursor: pointer;
     background-color: #4e8ce7;
-}
-
-.pixel-row {
-    display: flex;
-    flex: 1;
-}
-
-.pixel {
-    flex: 1;
 }
