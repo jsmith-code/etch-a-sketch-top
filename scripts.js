@@ -9,18 +9,18 @@ newGridBtn.addEventListener('click', () => {
 });
 
 function generateGrid(size) {
-    const canvasContainer = document.querySelector('#canvas-container');
+    const pixelGrid = document.querySelector('#pixel-grid');
 
-    const gridExists = canvasContainer.hasChildNodes();
+    const gridExists = pixelGrid.hasChildNodes();
     if (gridExists) {
         // Remove previous grid's pixels
-        canvasContainer.textContent = '';
+        pixelGrid.textContent = '';
     }
 
     for (let row = 0; row < size; row++) {
         const pixelRow = document.createElement('div');
         pixelRow.classList.add('pixel-row');
-        canvasContainer.appendChild(pixelRow);
+        pixelGrid.appendChild(pixelRow);
         
         for (let col = 0; col < size; col++) {
             const pixel = createPixel();

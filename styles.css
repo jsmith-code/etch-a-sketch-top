@@ -7,7 +7,7 @@ body {
     background-color: #222222;
 }
 
-#canvas-container {
+#pixel-grid {
     outline: 2px solid #cccccc;
     width: 640px;
     height: 640px;
