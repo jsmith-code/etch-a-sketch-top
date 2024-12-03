@@ -1,4 +1,5 @@
 const newGridBtn = document.querySelector('#new-grid-btn');
+const pixelGrid = document.querySelector('#pixel-grid');
 
 newGridBtn.addEventListener('click', () => {
     const size = getIntBetween(1, 100);
@@ -8,9 +9,25 @@ newGridBtn.addEventListener('click', () => {
     generateGrid(size);
 });
 
-function generateGrid(size) {
-    const pixelGrid = document.querySelector('#pixel-grid');
+// Set pixel color and opacity on mouseover
+pixelGrid.addEventListener('mouseover', (e) => {
+    pixel = e.target;
+    if (!pixel.classList.contains('colored'))  {
+        pixel.classList.add('colored');
+        
+        const red = Math.floor(Math.random()*255);
+        const green = Math.floor(Math.random()*255);
+        const blue = Math.floor(Math.random()*255);
+        pixel.style.backgroundColor = `rgb(${red}, ${green}, ${blue})`;
+    }
+    
+    if (pixel.style.opacity < 1 ) {
+    let currentOpacity = parseFloat(pixel.style.opacity);
+    pixel.style.opacity = currentOpacity + 0.1;
+    }
+});
 
+function generateGrid(size) {
     const gridExists = pixelGrid.hasChildNodes();
     if (gridExists) {
         // Remove previous grid's pixels
@@ -30,23 +47,6 @@ function generateGrid(size) {
 function createPixel() {
     const pixel = document.createElement('div');
     pixel.style.opacity = 0;
-    
-    pixel.addEventListener('mouseover', () => {       
-        if (!pixel.classList.contains('colored'))  {
-            pixel.classList.add('colored');
-            
-            const red = Math.floor(Math.random()*255);
-            const green = Math.floor(Math.random()*255);
-            const blue = Math.floor(Math.random()*255);
-            pixel.style.backgroundColor = `rgb(${red}, ${green}, ${blue})`;
-        }
-        
-        if (pixel.style.opacity < 1 ) {
-        let currentOpacity = parseFloat(pixel.style.opacity);
-        pixel.style.opacity = currentOpacity + 0.1;
-    }
-    });
-
     return pixel;
 }
 
