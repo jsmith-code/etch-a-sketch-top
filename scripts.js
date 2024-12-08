@@ -1,4 +1,5 @@
 const newGridBtn = document.querySelector('#new-grid-btn');
+const clearGridBtn = document.querySelector('#clear-grid-btn');
 const pixelGrid = document.querySelector('#pixel-grid');
 const colorPicker = document.querySelector('#color-picker');
 
@@ -62,6 +63,13 @@ pixelGrid.addEventListener('mousedown', (e) => {
     console.log(e.target)
     const pixel = e.target;
     pixel.style.backgroundColor = brushColor;
+});
+
+clearGridBtn.addEventListener('click', (e) => {
+    const pixels = pixelGrid.childNodes;
+    pixels.forEach(pixel => {
+        pixel.style = '';
+    })
 });
 
 generateGrid(16);
