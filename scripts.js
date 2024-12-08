@@ -13,11 +13,6 @@ newGridBtn.addEventListener('click', () => {
 pixelGrid.addEventListener('mouseover', (e) => {
     pixel = e.target;
     pixel.style.backgroundColor = `rgb(255, 255, 255)`;
-    
-    if (pixel.style.opacity < 1 ) {
-    let currentOpacity = parseFloat(pixel.style.opacity);
-    pixel.style.opacity = currentOpacity + 0.1;
-    }
 });
 
 function generateGrid(size) {
@@ -39,7 +34,6 @@ function generateGrid(size) {
 
 function createPixel() {
     const pixel = document.createElement('div');
-    pixel.style.opacity = 0;
     return pixel;
 }
 
