@@ -51,7 +51,6 @@ newGridBtn.addEventListener('click', () => {
     generateGrid(size);
 });
 
-// Set pixel color and opacity on mouseover
 pixelGrid.addEventListener('mouseover', (e) => {
     if (!e.buttons) return;
     const pixel = e.target;
