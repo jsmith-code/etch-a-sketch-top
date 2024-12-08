@@ -1,5 +1,13 @@
 const newGridBtn = document.querySelector('#new-grid-btn');
 const pixelGrid = document.querySelector('#pixel-grid');
+const colorPicker = document.querySelector('#color-picker');
+
+let brushColor = '#000000';
+
+colorPicker.addEventListener('change', (e) => {
+    const color = e.target.value;
+    brushColor = color;
+})
 
 newGridBtn.addEventListener('click', () => {
     const size = getIntBetween(1, 100);
@@ -12,7 +20,7 @@ newGridBtn.addEventListener('click', () => {
 // Set pixel color and opacity on mouseover
 pixelGrid.addEventListener('mouseover', (e) => {
     const pixel = e.target;
-    pixel.style.backgroundColor = `rgb(255, 255, 255)`;
+    pixel.style.backgroundColor = brushColor;
 });
 
 function generateGrid(size) {
